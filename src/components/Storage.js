@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import EmployeeService from "../services/EmployeeService";
 import Product from "./Product";
 import ProductService from "../services/ProductService";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
 
-const EmployeeList = () => {
+const Storage = () => {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
+  const {store} = useContext(Context);
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await ProductService.getProducts();
+        const response = await ProductService.getStorage(store.firmName);
         setProducts(response.data);
       } catch (error) {
         console.log(error);
@@ -78,4 +82,4 @@ const EmployeeList = () => {
   );
 };
 
-export default EmployeeList;
+export default observer(Storage);

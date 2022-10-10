@@ -1,14 +1,21 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
 
 const FirmPage = () => {
+
+    const navigate = useNavigate();
+
     return (
         <div>
-           <a className="bg-gray-300 rounded" href="/productShop">
+           <button className="bg-gray-300 rounded" onClick={event => navigate("/productShop")}>
                Купить компоненты
-           </a>
-            <a className="bg-gray-300 rounded" href="/employeeList">
+           </button>
+            <button className="bg-gray-300 rounded" onClick={event => navigate("/storage")}>
                 Склад
-            </a>
+            </button>
+            <button className="bg-gray-300 rounded" onClick={event => navigate("/orders")}>
+                Совершённые сделки
+            </button>
         </div>
     );
 };

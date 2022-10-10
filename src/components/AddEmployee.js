@@ -10,7 +10,7 @@ const AddEmployee = () => {
     emailId: "",
   });
 
-  const navigaye = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -22,7 +22,7 @@ const AddEmployee = () => {
     EmployeeService.saveEmployee(employee)
       .then((response) => {
         console.log(response);
-        navigaye("/employeeList");
+        navigate("/employeeList");
       })
       .catch((error) => {
         console.log(error);
