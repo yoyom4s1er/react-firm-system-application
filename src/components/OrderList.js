@@ -64,6 +64,9 @@ const OrderList = () => {
                         <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
                             Количество товаров
                         </th>
+                        <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
+                            Общая стоимость
+                        </th>
                         <th className="text-right font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
                             Actions
                         </th>

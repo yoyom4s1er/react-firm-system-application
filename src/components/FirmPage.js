@@ -7,7 +7,7 @@ const FirmPage = () => {
 
     return (
         <div>
-           <button className="bg-gray-300 rounded" onClick={event => navigate("/productShop")}>
+           <button className="bg-gray-300 rounded" onClick={event => navigate("/providerList")}>
                Купить компоненты
            </button>
             <button className="bg-gray-300 rounded" onClick={event => navigate("/storage")}>

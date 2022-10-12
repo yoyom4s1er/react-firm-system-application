@@ -12,13 +12,16 @@ const Order = ({order}) => {
                 <div className="text-sm text-gray-500">{order.operationType}</div>
             </td>
             <td className="text-left px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-500">{order.operationTargetId}</div>
+                <div className="text-sm text-gray-500">{order.operationTargetName}</div>
             </td>
             <td className="text-left px-6 py-4 whitespace-nowrap">
                 <div className="text-sm text-gray-500">{order.date.substring(0, 10)}</div>
             </td>
             <td className="text-left px-6 py-4 whitespace-nowrap">
                 <div className="text-sm text-gray-500">{order.products.length}</div>
+            </td>
+            <td className="text-left px-6 py-4 whitespace-nowrap">
+                <div className="text-sm text-gray-500">{order.totalPrice}</div>
             </td>
             <td className="text-right px-6 py-4 whitespace-nowrap font-medium text-sm">
                 <a

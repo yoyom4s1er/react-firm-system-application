@@ -9,8 +9,8 @@ class ProductService {
         return $api.get(EMPLOYEE_API_BASE_URL + "/" + firmName, { params: { locationType: "FIRM_COLLECTOR" }});
     }
 
-    getProductByProviders() {
-        return $api.get(EMPLOYEE_API_BASE_URL, { params: { locationType: "FIRM_PROVIDER" }});
+    getProductByProviders(providerName) {
+        return $api.get(EMPLOYEE_API_BASE_URL, { params: { locationType: "FIRM_PROVIDER", locationName: providerName }});
     }
 
 }

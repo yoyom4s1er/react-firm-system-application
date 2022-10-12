@@ -5,6 +5,7 @@ import Product from "./Product";
 import ProductService from "../services/ProductService";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
+import ProductStorage from "./ProductStorage";
 
 const Storage = () => {
   const navigate = useNavigate();
@@ -40,45 +41,40 @@ const Storage = () => {
   };
 
   return (
-    <div className="container mx-auto my-8">
-      <div className="h-12">
-        <button
-          onClick={() => navigate("/addEmployee")}
-          className="rounded bg-slate-600 text-white px-6 py-2 font-semibold">
-          Add Employee
-        </button>
+      <div className="flex flex-row">
+        <div className="container mx-auto my-8">
+          <div className="flex shadow border-b">
+            <table className="min-w-full">
+              <thead className="bg-gray-50">
+              <tr>
+                <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
+                  Номер
+                </th>
+                <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
+                  Название
+                </th>
+                <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
+                  Изготовитель
+                </th>
+                <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
+                  Цена
+                </th>
+              </tr>
+              </thead>
+              {!loading && (
+                  <tbody className="bg-white">
+                  {products.map((product, index) => (
+                      <ProductStorage
+                          product={product}
+                          index={index}
+                          key={product.id}></ProductStorage>
+                  ))}
+                  </tbody>
+              )}
+            </table>
+          </div>
+        </div>
       </div>
-      <div className="flex shadow border-b">
-        <table className="min-w-full">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
-                Название
-              </th>
-              <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
-                Изготовитель
-              </th>
-              <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
-                Цена
-              </th>
-              <th className="text-right font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
-                Actions
-              </th>
-            </tr>
-          </thead>
-          {!loading && (
-            <tbody className="bg-white">
-              {products.map((product) => (
-                <Product
-                  product={product}
-                  deleteEmployee={deleteEmployee}
-                  key={product.id}></Product>
-              ))}
-            </tbody>
-          )}
-        </table>
-      </div>
-    </div>
   );
 };
 

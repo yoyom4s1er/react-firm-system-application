@@ -50,7 +50,6 @@ export default class Store {
     async checkAuth() {
         try {
             const response = await axios.post(API_URL + "/v1/auth/refresh", {}, {withCredentials: true})
-            console.log(response);
             localStorage.setItem("token", response.data.accessToken);
             const decoded = jwt(response.data.accessToken);
             this.setFirm(decoded.sub)
